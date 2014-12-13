@@ -18,7 +18,7 @@ Vue.directive 'codemirror',
       @set @editor.getValue()
 
   update: (value) ->
-    @el.value = value
+    @editor.setValue value
 
 Vue.directive 'sandbox',
 

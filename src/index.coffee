@@ -25,6 +25,8 @@ parse = (code) ->
 
 document.addEventListener 'DOMContentLoaded', ->
 
+  # ほげ
+
   app = new Vue
     el: '#main'
     data:
