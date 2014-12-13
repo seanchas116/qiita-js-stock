@@ -23,8 +23,9 @@ Vue.directive 'sandbox',
 
   bind: ->
     @sandbox = sandbox
+
       cdn: 'http://wzrd.in'
-      iframe: @el
+      container: @el
 
     @vm.$on 'build', =>
       @sandbox.bundle(@vm.$data.source)

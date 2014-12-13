@@ -65,19 +65,34 @@ document.addEventListener 'DOMContentLoaded', ->
     el: '#main'
     data:
       source: """
-              /*
-              @title 足し算
-              */
-              var path = require('path');
+/*
+@title jQueryでelementを追加する
 
-              var result = 10 * 20; //=>
-              console.log(result);
+jQueryでDOM要素を追加するサンプルです
+*/
 
+var $ = require('jquery');
+var $elem = $('<p>test element</p>');
+
+$('body').append($elem);
+
+/*
+## require
+
+このツールでは browserify 経由で
+簡単にライブラリを`require`できます！
+
+## jQueryで要素を挿入
+
+iframeの中のbodyに要素を挿入します
+*/
               """
-      markdown: ''
     methods:
       build: ->
         @$emit 'build'
 
       post: ->
-        @$data.markdown = parse(@$data.source)
+    
+    computed:
+      markdown: ->
+        parse(@source)
