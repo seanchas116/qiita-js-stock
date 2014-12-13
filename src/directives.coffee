@@ -14,11 +14,10 @@ Vue.directive 'codemirror',
       mode: 'javascript'
       theme: 'twilight'
 
-    @editor.on 'change', =>
-      @set @editor.getValue()
+    @editor.setValue @vm.$data.source
 
-  update: (value) ->
-    @editor.setValue value
+    @editor.on 'change', =>
+      @vm.$data.source = @editor.getValue()
 
 Vue.directive 'sandbox',
 
