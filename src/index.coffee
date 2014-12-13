@@ -25,10 +25,12 @@ parse = (code) ->
   markdown = ''
 
   addMarkdown = (md) ->
-    markdown += "\n#{trim(md)}\n"
+    unless md.match(/^\s*$/)
+      markdown += "\n#{trim(md)}\n"
 
   addCode = (code) ->
-    markdown += "```:javascript\n#{trim(code)}\n```"
+    unless code.match(/^\s*$/)
+      markdown += "```:javascript\n#{trim(code)}\n```"
 
   i = 0
   commentCount = tree.comments.length
@@ -41,22 +43,19 @@ parse = (code) ->
       if lastComment?
         codeBegin = lastComment.range[1]
         codeEnd = comment.range[0]
-        code = code.slice(codeBegin, codeEnd)
-        unless code.match(/^\s*$/)
-          addCode(code)
+        addCode(code.slice(codeBegin, codeEnd))
 
-      unless comment.value.match(/^\s*$/)
-        addMarkdown(comment.value)
+      addMarkdown(comment.value)
 
       lastComment = comment
 
     i += 1
 
-  code = code.slice(lastComment.range[1])
-  unless code.match(/^\s*$/)
+  if lastComment
+    addCode(code.slice(lastComment.range[1]))
+  else
     addCode(code)
 
-  console.log(markdown)
   markdown
 
 document.addEventListener 'DOMContentLoaded', ->
