@@ -9,14 +9,16 @@ Vue.directive 'codemirror',
   twoWay: true
 
   bind: ->
-    @editor = codeMirror @el,
+    @editor = codeMirror.fromTextArea @el,
+      lineNumbers: true
       mode: 'javascript'
+      theme: 'twilight'
 
     @editor.on 'change', =>
       @set @editor.getValue()
 
   update: (value) ->
-    @editor.setValue value
+    @el.value = value
 
 Vue.directive 'sandbox',
 

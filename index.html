@@ -3,6 +3,8 @@
 <head>
   <script src='./bundle.js'></script>
   <link rel='stylesheet' href='./style.css'>
+  <link rel="stylesheet" href='./node_modules/bootstrap/dist/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./node_modules/codemirror/lib/codemirror.css">
 </head>
 <body>
   <div id='main'>
@@ -10,9 +12,7 @@
       <a href='#' v-on='click: build'>Build</a>
     </nav>
     <section class="editor">
-      <!--
       <textarea v-codemirror='source'></textarea>
-    -->
     </section>
     <section class="result">
       <iframe id="frame" v-sandbox></iframe>
