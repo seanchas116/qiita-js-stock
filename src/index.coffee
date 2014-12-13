@@ -70,32 +70,39 @@ document.addEventListener 'DOMContentLoaded', ->
 @tags JavaScript, jQuery, browserify
 
 jQueryでDOM要素を追加するサンプルです
-*/
 
-var $ = require('jquery');
-var $elem = $('<p>test element</p>');
-
-$('body').append($elem);
-
-/*
 ## require
 
 このツールでは browserify 経由で
 簡単にライブラリを`require`できます
 Thanks to [browserify-cdn](https://github.com/jesusabdullah/browserify-cdn)!!
+*/
 
+var $ = require('jquery');
+
+/*
 ## jQueryで要素を挿入
 
 iframeの中のbodyに要素を挿入します
 */
+
+var $elem = $('<p>test element</p>');
+
+$('body').append($elem);
               """
     methods:
       run: ->
         @$emit 'run'
 
       post: ->
-
-
+        Qiita.Resources.Item.create_item
+          body: @markdown
+          coediting: false
+          gist: false
+          private: true
+          tags: @tags
+          title: @title
+          tweet: false
 
     computed:
       markdown: ->
