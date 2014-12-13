@@ -66,6 +66,7 @@ document.addEventListener 'DOMContentLoaded', ->
       source: """
 /*
 @title jQueryでelementを追加する
+@tags JavaScript, jQuery, browserify
 
 jQueryでDOM要素を追加するサンプルです
 */
@@ -79,7 +80,8 @@ $('body').append($elem);
 ## require
 
 このツールでは browserify 経由で
-簡単にライブラリを`require`できます！
+簡単にライブラリを`require`できます
+Thanks to [browserify-cdn](https://github.com/jesusabdullah/browserify-cdn)!!
 
 ## jQueryで要素を挿入
 
@@ -92,6 +94,22 @@ iframeの中のbodyに要素を挿入します
 
       post: ->
 
+
     computed:
       markdown: ->
         parse(@source)
+
+      markdownLines: ->
+        @markdown.split('\n')
+
+      title: ->
+        for line in @markdownLines
+          if match = line.match /(^\s*@title\s+)(.*)($)/
+            return match[2]
+        'Title'
+
+      tags: ->
+        for line in @markdownLines
+          if match = line.match /(^\s*@tags\s+)(.*)($)/
+            return match[2].split(/,\s*/)
+        []
