@@ -88,11 +88,11 @@ iframeの中のbodyに要素を挿入します
 */
               """
     methods:
-      build: ->
-        @$emit 'build'
+      run: ->
+        @$emit 'run'
 
       post: ->
-    
+
     computed:
       markdown: ->
         parse(@source)

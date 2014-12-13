@@ -27,5 +27,5 @@ Vue.directive 'sandbox',
       cdn: 'http://wzrd.in'
       container: @el
 
-    @vm.$on 'build', =>
+    @vm.$on 'run', =>
       @sandbox.bundle(@vm.$data.source)
