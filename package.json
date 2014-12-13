@@ -11,6 +11,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "ace": "0.0.2",
     "bootstrap": "^3.3.1",
     "bootswatch": "^3.3.1",
     "browser-module-sandbox": "^1.3.7",
@@ -18,6 +19,7 @@
     "escodegen": "^1.4.1",
     "esprima": "^1.2.2",
     "lodash": "^2.4.1",
+    "qiita-js": "^0.1.0",
     "strip-indent": "^1.0.0",
     "trim": "0.0.1",
     "vue": "^0.11.4"

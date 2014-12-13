@@ -5,11 +5,12 @@ escodegen = require 'escodegen'
 stripIndent = require 'strip-indent'
 _ = require 'lodash'
 trim = require 'trim'
+Qiita = require 'qiita-js'
 
 Vue = require 'vue'
-require './directives'
 
-markdown = ''
+require './private'
+require './directives'
 
 visit = (tree) ->
 
@@ -93,6 +94,7 @@ iframeの中のbodyに要素を挿入します
         @$emit 'run'
 
       post: ->
+
 
 
     computed:

@@ -1,0 +1,15 @@
+{
+  "name": "qiita-interactive",
+  "version": "0.0.0",
+  "authors": [
+    "Ryohei Ikegami <iofg2100@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
