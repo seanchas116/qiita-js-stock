@@ -12,7 +12,7 @@ Vue.directive 'codemirror',
     @editor = codeMirror.fromTextArea @el,
       lineNumbers: true
       mode: 'javascript'
-      theme: 'twilight'
+      theme: 'solarized'
 
     @editor.setValue @vm.$data.source
 
@@ -26,6 +26,7 @@ Vue.directive 'sandbox',
 
       cdn: 'http://wzrd.in'
       container: @el
+      iframeStyle: 'body { background-color: white; }'
 
     @vm.$on 'run', =>
       @sandbox.bundle(@vm.$data.source)
